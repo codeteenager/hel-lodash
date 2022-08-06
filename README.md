@@ -1,11 +1,11 @@
 ## remote-lib-tpl
-远程仓库模板库，示例里移出了dwt测试相关套件，从而避免引导入了dwt测试相关组件而引入了antd相关依赖，如需收集测试覆盖率，
-可在 jest.config.js 解开相关注释加回来
+远程仓库模板库
+
 ## 如何参与
 - 改subApp
 `src/configs/subApp.ts`改为你的hel模块名（即hel.oa.com上注册的应用组名）
 ```ts
-export const APP_GROUP_NAME = 'hlib-xxx'; /// xxx即你的企业微信名字
+export const APP_GROUP_NAME = 'hlib-xxx'; /// xxx你的名字
 ```
 
 - 改package.json
