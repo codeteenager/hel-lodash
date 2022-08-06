@@ -1,11 +1,11 @@
 ## remote-lib-tpl
-远程仓库模板库，示例里移出了dwt测试相关套件，从而避免引导入了dwt测试相关组件而引入了antd相关依赖，如需收集测试覆盖率，
-可在 jest.config.js 解开相关注释加回来
+远程仓库模板库
+
 ## 如何参与
 - 改subApp
 `src/configs/subApp.ts`改为你的hel模块名（即hel.oa.com上注册的应用组名）
 ```ts
-export const APP_GROUP_NAME = 'hlib-xxx'; /// xxx即你的企业微信名字
+export const APP_GROUP_NAME = 'hlib-xxx'; /// xxx你的名字
 ```
 
 - 改package.json
@@ -16,16 +16,16 @@ export const APP_GROUP_NAME = 'hlib-xxx'; /// xxx即你的企业微信名字
 ```
 
 - 改源代码
-`src/utils/myMod.ts`文件里写入你的企业微信名
+`src/utils/myMod.ts`
 ```ts
 export function sayHelloToHel(from: string) {
-  const yourRtxName = ''; // 此处改写为你的rtx名字
-  return `hello hel, I am ${yourRtxName}, I come from ${from}`;
+  const yourRtxName = ''; // 可改写为你的名字
+  return `hello hel, I am ${yourName}, I come from ${from}`;
 }
 ```
 
 - 改单测文件
-`src/utils/__tests__/myMod.ts`文件里写入你的企业微信名
+`src/utils/__tests__/myMod.ts`
 ```ts
 describe('test myMod', () => {
   test('sayHelloToHel', () => {
@@ -43,13 +43,9 @@ npm run test
 
 - 发布源码和类型
 ```
-npm run build_npm
-tnpm publish
+npm run build
+npm publish
 ```
-
-- 发布运行时代码
-去你的蓝盾蓝盾流水线点击构建即可
-
 
 ## FAQ
 ### 为何入口文件采取动态模块导入写法
@@ -65,7 +61,7 @@ async function main() {
 };
 
 main().catch(console.error);
-export default 'HEL REMOTE MOD';
+export default 'REMOTE MOD';
 ```
 
 需要将 `config/webpack.config.js`里的 `maxChunks`的值 1 改为 4
@@ -104,7 +100,7 @@ async function main() {
   const { LIB_NAME } = await import('./configs/subApp');
 
   const libProperties = await import('./entrance/libProperties');
-  libReady(LIB_NAME, libProperties.default, { platform: 'hel' });
+  libReady(LIB_NAME, libProperties.default);
 };
 
 main().catch(console.error);
