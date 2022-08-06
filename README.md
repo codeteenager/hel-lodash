@@ -16,16 +16,16 @@ export const APP_GROUP_NAME = 'hlib-xxx'; /// xxx即你的企业微信名字
 ```
 
 - 改源代码
-`src/utils/myMod.ts`文件里写入你的企业微信名
+`src/utils/myMod.ts`
 ```ts
 export function sayHelloToHel(from: string) {
-  const yourRtxName = ''; // 此处改写为你的rtx名字
-  return `hello hel, I am ${yourRtxName}, I come from ${from}`;
+  const yourRtxName = ''; // 可改写为你的名字
+  return `hello hel, I am ${yourName}, I come from ${from}`;
 }
 ```
 
 - 改单测文件
-`src/utils/__tests__/myMod.ts`文件里写入你的企业微信名
+`src/utils/__tests__/myMod.ts`
 ```ts
 describe('test myMod', () => {
   test('sayHelloToHel', () => {
@@ -43,13 +43,9 @@ npm run test
 
 - 发布源码和类型
 ```
-npm run build_npm
-tnpm publish
+npm run build
+npm publish
 ```
-
-- 发布运行时代码
-去你的蓝盾蓝盾流水线点击构建即可
-
 
 ## FAQ
 ### 为何入口文件采取动态模块导入写法
@@ -65,7 +61,7 @@ async function main() {
 };
 
 main().catch(console.error);
-export default 'HEL REMOTE MOD';
+export default 'REMOTE MOD';
 ```
 
 需要将 `config/webpack.config.js`里的 `maxChunks`的值 1 改为 4
@@ -104,7 +100,7 @@ async function main() {
   const { LIB_NAME } = await import('./configs/subApp');
 
   const libProperties = await import('./entrance/libProperties');
-  libReady(LIB_NAME, libProperties.default, { platform: 'hel' });
+  libReady(LIB_NAME, libProperties.default);
 };
 
 main().catch(console.error);
