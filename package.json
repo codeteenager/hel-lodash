@@ -5,8 +5,9 @@
   "module": "hel_proxy_es/entry.js",
   "unpkg": "hel_dist/entry.js",
   "types": "lib/entrance/libTypes.ts",
-  "version": "1.2.3",
+  "version": "1.2.10",
   "dependencies": {
+    "@types/lodash": "^4.14.182",
     "hel-lib-proxy": "^3.6.3",
     "lodash": "^4.17.21"
   },
@@ -53,7 +54,6 @@
     "@babel/core": "7.9.0",
     "@testing-library/user-event": "^7.1.2",
     "@types/jest": "^24.9.1",
-    "@types/lodash": "^4.14.182",
     "@typescript-eslint/eslint-plugin": "^4.17.0",
     "@typescript-eslint/parser": "^4.17.0",
     "babel-eslint": "10.1.0",
